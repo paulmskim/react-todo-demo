@@ -20,6 +20,7 @@ const AddTodo = ({ dispatch }) => {
       >
         <input
           class="add-todo-input"
+          placeholder="Add todo here..."
           ref={node => { input = node; }}
         />
         <button
