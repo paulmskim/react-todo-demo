@@ -1,0 +1,14 @@
+@import "breakpoint";
+
+@import "variables/**/*";
+@import "abstractions/**/*";
+@import "base/**/*";
+@import "components/**/*";
+
+.todo-app {
+  text-align: center;
+  width: 100%;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 1rem;
+}

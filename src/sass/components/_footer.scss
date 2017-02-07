@@ -1,0 +1,31 @@
+.footer {
+  font-size: $auxFontSize;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.footer-link {
+  flex: 1 1 100%;
+  width: 100%;
+  border: 1px solid $borderColor;
+  margin: 0.5rem;
+  padding: 0.5rem 0.25rem;
+  cursor: pointer;
+  background: $buttonColor;
+}
+
+.active {
+  background: $activeButtonColor;
+}
+
+@include breakpoint($mobileBP) {
+  .footer {
+    flex-wrap: nowrap;
+  }
+
+  .footer-link {
+    flex: 1 1 0;
+  }
+}
