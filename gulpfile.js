@@ -10,7 +10,10 @@ var gulp = require('gulp'),
 
 var sass_config = {
   style: 'expanded',
-  importer: importer
+  importer: importer,
+  includePaths: [
+    'node_modules/breakpoint-sass/stylesheets/'
+  ]
 };
 
 gulp.task('default', function() {
