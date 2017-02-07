@@ -20,7 +20,15 @@
     "babel-preset-react": "6.3.13",
     "babel-preset-stage-0": "6.3.13",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "gulp": "3.9.1",
+    "gulp-sass": "3.1.0",
+    "node-sass-globbing": "0.0.23",
+    "gulp-plumber": "1.1.0",
+    "gulp-util": "3.0.8",
+    "gulp-autoprefixer": "3.1.1",
+    "gulp-clean-css": "2.3.2",
+    "gulp-rename": "1.2.2"
   },
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
