@@ -76,6 +76,48 @@ describe('todo reducer', () => {
     });
   });
 
+  describe('delete todo action', () => {
+    it('should return false if state id matches action id', () => {
+      const stateBefore = {
+        id: 0,
+        text: 'Hello world',
+        completed: false
+      };
+      const action = {
+        type: 'DELETE_TODO',
+        id: 0
+      };
+      const stateAfter = false;
+
+      deepFreeze(stateBefore);
+      deepFreeze(action);
+
+      expect(
+        todo(stateBefore, action)
+      ).to.deep.equal(stateAfter);
+    });
+
+    it('should return true if state id does not match action id', () => {
+      const stateBefore = {
+        id: 0,
+        text: 'Hello world',
+        completed: false
+      };
+      const action = {
+        type: 'DELETE_TODO',
+        id: 1
+      };
+      const stateAfter = true;
+
+      deepFreeze(stateBefore);
+      deepFreeze(action);
+
+      expect(
+        todo(stateBefore, action)
+      ).to.deep.equal(stateAfter);
+    });
+  });
+
   describe('default action', () => {
     it('should return state if an unknown action is provided', () => {
       const stateBefore = {

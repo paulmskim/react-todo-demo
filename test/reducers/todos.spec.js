@@ -118,7 +118,7 @@ describe('todos reducer', () => {
       ).to.deep.equal(stateAfter);
     });
 
-    it('should only toggle completed field of todo if state id matches action id', () => {
+    it('should only toggle completed field of todo if todo id matches action id', () => {
       const stateBefore = [{
         id: 0,
         text: 'Hello world',
@@ -154,6 +154,94 @@ describe('todos reducer', () => {
       const action = {
         type: 'TOGGLE_TODO',
         id: 0,
+      };
+      const stateAfter = [];
+
+      deepFreeze(action);
+
+      expect(
+        todos(undefined, action)
+      ).to.deep.equal(stateAfter);
+    });
+  });
+
+  describe('delete todo action', () => {
+    it('should delete todo if todo id matches action id', () => {
+      const stateBefore = [{
+        id: 0,
+        text: 'Hello world',
+        completed: false
+      }];
+      const action = {
+        type: 'DELETE_TODO',
+        id: 0
+      };
+      const stateAfter = [];
+
+      deepFreeze(stateBefore);
+      deepFreeze(action);
+
+      expect(
+        todos(stateBefore, action)
+      ).to.deep.equal(stateAfter);
+    });
+
+    it('should not delete todo if todo id does not match action id', () => {
+      const stateBefore = [{
+        id: 0,
+        text: 'Hello world',
+        completed: false
+      }];
+      const action = {
+        type: 'DELETE_TODO',
+        id: 1
+      };
+      const stateAfter = [{
+        id: 0,
+        text: 'Hello world',
+        completed: false
+      }];
+
+      deepFreeze(stateBefore);
+      deepFreeze(action);
+
+      expect(
+        todos(stateBefore, action)
+      ).to.deep.equal(stateAfter);
+    });
+
+    it('should only delete todo if todo id matches action id', () => {
+      const stateBefore = [{
+        id: 0,
+        text: 'Hello world',
+        completed: false
+      }, {
+        id: 1,
+        text: 'Goodbye world',
+        completed: false
+      }];
+      const action = {
+        type: 'DELETE_TODO',
+        id: 0
+      };
+      const stateAfter = [{
+        id: 1,
+        text: 'Goodbye world',
+        completed: false
+      }];
+
+      deepFreeze(stateBefore);
+      deepFreeze(action);
+
+      expect(
+        todos(stateBefore, action)
+      ).to.deep.equal(stateAfter);
+    });
+
+    it('should return blank array if no state is provided', () => {
+      const action = {
+        type: 'DELETE_TODO',
+        id: 0
       };
       const stateAfter = [];
 
