@@ -77,7 +77,7 @@ describe('todo reducer', () => {
   });
 
   describe('default action', () => {
-    it('should return state when an unknown action is provided', () => {
+    it('should return state if an unknown action is provided', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
@@ -101,7 +101,7 @@ describe('todo reducer', () => {
       ).to.deep.equal(stateAfter);
     });
 
-    it('should return state when no action is provided', () => {
+    it('should return state if no action is provided', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
