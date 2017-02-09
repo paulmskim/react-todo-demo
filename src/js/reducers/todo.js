@@ -15,6 +15,8 @@ const todo = (state, action) => {
         ...state,
         completed: !state.completed
       };
+    case 'DELETE_TODO':
+      return state.id !== action.id;
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({ todos, onTodoClick }) => {
+const TodoList = ({ todos, onTodoClick, onDeleteClick }) => {
   if (!todos.length) {
     return <p class="no-todo">No todos</p>;
   }
@@ -12,7 +12,8 @@ const TodoList = ({ todos, onTodoClick }) => {
         <Todo
           key={todo.id}
           {...todo}
-          onClick={() => onTodoClick(todo.id)}
+          onTodoClick={() => onTodoClick(todo.id)}
+          onDeleteClick={() => onDeleteClick(todo.id)}
         />
       )}
     </ul>

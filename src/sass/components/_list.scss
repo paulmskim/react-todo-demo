@@ -9,6 +9,24 @@
 
 .todo {
   margin: 0.5rem 0;
-  cursor: pointer;
+  display: flex;
+  align-content: center;
+}
+
+.todo-text {
+  flex: 1 1 auto;
+  margin: 0;
   word-wrap: break-word;
+  cursor: pointer;
+}
+
+.todo-done {
+  text-decoration: line-through;
+}
+
+.todo-delete {
+  flex: 0 0 auto;
+  display: block;
+  margin: auto 0;
+  padding: 0 0.25rem;
 }
