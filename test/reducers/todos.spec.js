@@ -36,15 +36,14 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Goodbye world'
       };
-      const stateAfter = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }, {
-        id: 1,
-        text: 'Goodbye world',
-        completed: false
-      }];
+      const stateAfter = [
+        ...stateBefore,
+        {
+          id: 1,
+          text: 'Goodbye world',
+          completed: false
+        }
+      ];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -109,11 +108,7 @@ describe('todos reducer', () => {
         type: 'TOGGLE_TODO',
         id: 1
       };
-      const stateAfter = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateAfter = [...stateBefore];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -157,15 +152,10 @@ describe('todos reducer', () => {
 
     it('should return blank array if no state is provided', () => {
       const action = {
-        type: 'ADD_TODO',
+        type: 'TOGGLE_TODO',
         id: 0,
-        text: 'Hello world'
       };
-      const stateAfter = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateAfter = [];
 
       deepFreeze(action);
 
@@ -186,11 +176,7 @@ describe('todos reducer', () => {
         action: 'DEFAULT_ACTION',
         id: 0
       };
-      const stateAfter = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateAfter = [...stateBefore];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -209,11 +195,7 @@ describe('todos reducer', () => {
       const action = {
         id: 0
       };
-      const stateAfter = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateAfter = [...stateBefore];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -226,8 +208,7 @@ describe('todos reducer', () => {
     it('should return blank array if no state is provided', () => {
       const action = {
         type: 'DEFAULT_ACTION',
-        id: 0,
-        text: 'Hello world'
+        id: 0
       };
       const stateAfter = [];
 
