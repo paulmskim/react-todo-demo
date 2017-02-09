@@ -65,7 +65,7 @@ gulp.task('coverage:report', (done) => {
 });
 
 gulp.task('test', () => {
-  gulp.src(TEST_FILES, {read: false})
+  return gulp.src(TEST_FILES, {read: false})
     .pipe(mocha({
       reporter: 'spec'
     }));

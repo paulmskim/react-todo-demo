@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 import todo from '../../src/js/reducers/todo';
 
-describe('add todo action', () => {
+describe('todo: add todo action', () => {
   it('should add todo', () => {
     const stateBefore = {};
     const action = {
@@ -25,7 +25,7 @@ describe('add todo action', () => {
   });
 });
 
-describe('toggle todo action', () => {
+describe('todo: toggle todo action', () => {
   it('should toggle completed field if state id matches action id', () => {
     const stateBefore = {
       id: 0,
@@ -75,8 +75,8 @@ describe('toggle todo action', () => {
   });
 });
 
-describe('default action', () => {
-  it('should return state when an unknown action is defined', () => {
+describe('todo: default action', () => {
+  it('should return state when an unknown action is provided', () => {
     const stateBefore = {
       id: 0,
       text: 'Hello world',
@@ -100,7 +100,7 @@ describe('default action', () => {
     ).to.deep.equal(stateAfter);
   });
 
-  it('should return state when no action is defined', () => {
+  it('should return state when no action is provided', () => {
     const stateBefore = {
       id: 0,
       text: 'Hello world',
