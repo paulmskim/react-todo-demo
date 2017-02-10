@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-const AddTodo = ({ onSubmit }) => {
+const AddTodoForm = ({ onSubmit }) => {
   let input;
 
   return (
@@ -27,4 +27,8 @@ const AddTodo = ({ onSubmit }) => {
   );
 };
 
-export default AddTodo;
+AddTodoForm.PropTypes = {
+  onSubmit: PropTypes.func.isRequired
+}
+
+export default AddTodoForm;
