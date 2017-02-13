@@ -3,11 +3,11 @@ import Todo from './Todo';
 
 const TodoList = ({ todos, onTodoClick, onDeleteClick }) => {
   if (!todos.length) {
-    return <p class="no-todo">No todos</p>;
+    return <p className="no-todo">No todos</p>;
   }
 
   return (
-    <ul class="todo-list">
+    <ul className="todo-list">
       {todos.map(todo =>
         <Todo
           key={todo.id}

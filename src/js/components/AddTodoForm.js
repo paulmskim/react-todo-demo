@@ -4,18 +4,18 @@ const AddTodoForm = ({ onSubmit }) => {
   let input;
 
   return (
-    <div class="add-todo">
+    <div className="add-todo">
       <form
-        class="add-todo-form"
+        className="add-todo-form"
         onSubmit={e => onSubmit(e, input)}
       >
         <input
-          class="add-todo-input"
+          className="add-todo-input"
           placeholder="Add todo here..."
           ref={node => { input = node; }}
         />
         <button
-          class="add-todo-button"
+          className="add-todo-button"
           type="submit"
         >
           +

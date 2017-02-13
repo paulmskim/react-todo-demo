@@ -2,17 +2,17 @@ import React, { PropTypes } from 'react';
 
 const Todo = ({ onTodoClick, onDeleteClick, completed, text }) => (
   <li
-    class="todo"
+    className="todo"
   >
     <p
-      class={completed ? "todo-text todo-done" : "todo-text"}
+      className={completed ? "todo-text todo-done" : "todo-text"}
       onClick={onTodoClick}
     >
       {text}
     </p>
     <a
       href="#"
-      class="todo-delete"
+      className="todo-delete"
       onClick={(e) => {
         e.preventDefault();
         onDeleteClick();

@@ -5,7 +5,7 @@ import FilteredTodoList from './FilteredTodoList';
 import Footer from './Footer';
 
 const App = () => (
-  <div class="todo-app">
+  <div className="todo-app">
     <Header />
     <AddTodo />
     <FilteredTodoList />
