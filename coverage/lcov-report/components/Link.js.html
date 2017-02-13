@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for components/Todo.js</title>
+    <title>Code coverage report for components/Link.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">all files</a> / <a href="index.html">components/</a> Todo.js
+      <a href="../index.html">all files</a> / <a href="index.html">components/</a> Link.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>14/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y'>
         <span class="strong">1 branch</span>
@@ -75,23 +75,14 @@
 26
 27
 28
-29
-30
-31
-32
-33
-34</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+29</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,7 +97,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -115,37 +105,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { PropTypes } from 'react';
 &nbsp;
-const Todo = ({ onTodoClick, onDeleteClick, completed, text }) =&gt; (
-  &lt;li
-    className="todo"
-  &gt;
-    &lt;p
-      className={completed ? "todo-text todo-done" : "todo-text"}
-      onClick={onTodoClick}
-    &gt;
-      {text}
-    &lt;/p&gt;
+const Link = ({ active, children, onClick }) =&gt; {
+  if (active) {
+    return &lt;span className="footer-link active"&gt;{children}&lt;/span&gt;;
+  }
+&nbsp;
+  return (
     &lt;a
+      className="footer-link"
       href="#"
-      className="todo-delete"
-      onClick={(e) =&gt; {
+      onClick={e =&gt; {
         e.preventDefault();
-        onDeleteClick();
+        onClick();
       }}
     &gt;
-      ×
+      {children}
     &lt;/a&gt;
-  &lt;/li&gt;
-);
-&nbsp;
-Todo.PropTypes = {
-  onTodoClick: PropTypes.func.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  );
 };
 &nbsp;
-export default Todo;
+Link.PropTypes = {
+  active: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired
+};
+&nbsp;
+export default Link;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

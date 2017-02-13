@@ -52,7 +52,7 @@ describe('Reducer: visibilityFilter', () => {
       ).to.deep.equal(stateAfter);
     });
 
-    it('should return state when no action type is provided', () => {
+    it('should return state if no action type is provided', () => {
       const stateBefore = 'SHOW_COMPLETED';
       const action = {
         filter: 'SHOW_ACTIVE'

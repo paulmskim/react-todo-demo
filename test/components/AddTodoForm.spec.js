@@ -36,7 +36,7 @@ describe('Component: AddTodoForm', () => {
     ).to.equal('submit');
   });
 
-  it('should call onSubmit when form is submitted', () => {
+  it('should call onSubmit if form is submitted', () => {
     const onSubmit = spy(minProps, 'onSubmit');
     const wrapper = shallow(
       <AddTodoForm {...minProps} />

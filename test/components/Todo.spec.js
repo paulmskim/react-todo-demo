@@ -39,7 +39,7 @@ describe('Component: Todo', () => {
     ).to.equal(minProps.text);
   });
 
-  it('should call onTodoClick when todo text is clicked', () => {
+  it('should call onTodoClick if todo text is clicked', () => {
     const onTodoClick = spy(minProps, 'onTodoClick');
     const wrapper = shallow(
       <Todo {...minProps} />
@@ -52,7 +52,7 @@ describe('Component: Todo', () => {
     ).to.be.true;
   });
 
-  it('should call onDeleteClick when delete is clicked', () => {
+  it('should call onDeleteClick if delete is clicked', () => {
     const onDeleteClick = spy(minProps, 'onDeleteClick');
     const wrapper = mount(
       <Todo {...minProps} />
@@ -65,7 +65,7 @@ describe('Component: Todo', () => {
     ).to.be.true;
   });
 
-  it('should have todo-done class when completed is true', () => {
+  it('should have todo-done class if completed is true', () => {
     const wrapper = mount(
       <Todo {...minProps} completed={true} />
     );
