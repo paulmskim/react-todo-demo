@@ -7,9 +7,7 @@ const AddTodoForm = ({ onSubmit }) => {
     <div class="add-todo">
       <form
         class="add-todo-form"
-        onSubmit={e => {
-          onSubmit(e, input);
-        }}
+        onSubmit={e => onSubmit(e, input)}
       >
         <input
           class="add-todo-input"
@@ -29,6 +27,6 @@ const AddTodoForm = ({ onSubmit }) => {
 
 AddTodoForm.PropTypes = {
   onSubmit: PropTypes.func.isRequired
-}
+};
 
 export default AddTodoForm;

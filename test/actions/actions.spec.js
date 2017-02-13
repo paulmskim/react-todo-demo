@@ -7,7 +7,7 @@ import {
   setVisibilityFilter
 } from '../../src/js/actions/actions';
 
-describe('actions', () => {
+describe('Actions', () => {
   describe('add todo action', () => {
     it('should return action add todo from id 0', () => {
       const input = 'Hello world';

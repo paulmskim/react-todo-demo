@@ -3,9 +3,11 @@ import React, { PropTypes } from 'react';
 const Todo = ({ onTodoClick, onDeleteClick, completed, text }) => (
   <li
     class="todo"
-    onClick={onTodoClick}
   >
-    <p class={completed ? "todo-text todo-done" : "todo-text"}>
+    <p
+      class={completed ? "todo-text todo-done" : "todo-text"}
+      onClick={onTodoClick}
+    >
       {text}
     </p>
     <a
@@ -26,6 +28,6 @@ Todo.PropTypes = {
   onDeleteClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
-}
+};
 
 export default Todo;

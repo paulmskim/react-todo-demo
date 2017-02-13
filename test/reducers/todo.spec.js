@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 import todo from '../../src/js/reducers/todo';
 
-describe('todo reducer', () => {
+describe('Reducer: todo', () => {
   describe('add todo action', () => {
     it('should add todo', () => {
       const stateBefore = {};

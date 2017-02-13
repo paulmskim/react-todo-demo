@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 import visibilityFilter from '../../src/js/reducers/visibilityFilter';
 
-describe('visibilityFilter reducer', () => {
+describe('Reducer: visibilityFilter', () => {
   describe('set visibility filter action', () => {
     it('should set visibility filter to provided filter', () => {
       const stateBefore = 'SHOW_ALL';
