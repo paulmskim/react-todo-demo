@@ -44,6 +44,8 @@ describe('Component: AddTodoForm', () => {
     wrapper.find('form').simulate('submit');
     onSubmit.restore();
 
-    expect(onSubmit.calledOnce).to.equal(true);
+    expect(
+      onSubmit.calledOnce
+    ).to.be.true;
   });
 });
