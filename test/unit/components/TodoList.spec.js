@@ -3,7 +3,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
-import TodoList from '../../src/js/components/TodoList';
+import TodoList from '../../../src/js/components/TodoList';
 
 describe('Component: TodoList', () => {
   const minProps = {

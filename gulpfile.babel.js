@@ -14,7 +14,7 @@ import runSequence from 'run-sequence';
 
 const SRC_JS_FILES = 'src/js/**/*.js',
       SRC_SCSS_FILES = 'src/sass/**/*.scss',
-      TEST_FILES = 'test/test.js',
+      TEST_FILES = 'test/unit/test.js',
       sass_config = {
         style: 'expanded',
         importer: importer,

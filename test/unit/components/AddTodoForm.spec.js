@@ -3,7 +3,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
-import AddTodoForm from '../../src/js/components/AddTodoForm';
+import AddTodoForm from '../../../src/js/components/AddTodoForm';
 
 describe('Component: AddTodoForm', () => {
   const minProps = {

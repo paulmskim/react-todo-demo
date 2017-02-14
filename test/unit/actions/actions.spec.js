@@ -5,7 +5,7 @@ import {
   toggleTodo,
   deleteTodo,
   setVisibilityFilter
-} from '../../src/js/actions/actions';
+} from '../../../src/js/actions/actions';
 
 describe('Actions', () => {
   describe('add todo action', () => {

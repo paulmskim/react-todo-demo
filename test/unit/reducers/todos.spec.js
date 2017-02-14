@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
-import todos from '../../src/js/reducers/todos';
+import todos from '../../../src/js/reducers/todos';
 
 describe('Reducer: todos', () => {
   describe('add todo action', () => {

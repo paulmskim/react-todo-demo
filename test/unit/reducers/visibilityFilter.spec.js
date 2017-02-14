@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
-import visibilityFilter from '../../src/js/reducers/visibilityFilter';
+import visibilityFilter from '../../../src/js/reducers/visibilityFilter';
 
 describe('Reducer: visibilityFilter', () => {
   describe('set visibility filter action', () => {

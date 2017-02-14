@@ -3,7 +3,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
-import Link from '../../src/js/components/Link';
+import Link from '../../../src/js/components/Link';
 
 describe('Component: Link', () => {
   const minProps = {
