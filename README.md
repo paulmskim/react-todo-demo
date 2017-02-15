@@ -1,6 +1,6 @@
 # react-todo-demo
 
-A todo list demo made from React with unit and integration tests.
+A todo list demo made with React and includes unit and integration tests.
 
 ## Getting started
 
