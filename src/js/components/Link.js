@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react';
 
 const Link = ({ active, children, onClick }) => {
+  const footerLinkClass = "footer-link footer-link-" + children.toLowerCase();
+
   if (active) {
-    return <span className="footer-link active">{children}</span>;
+    return <span className={footerLinkClass + " active"}>{children}</span>;
   }
 
   return (
     <a
-      className="footer-link"
+      className={footerLinkClass}
       href="#"
       onClick={e => {
         e.preventDefault();

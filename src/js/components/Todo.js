@@ -1,27 +1,35 @@
 import React, { PropTypes } from 'react';
 
-const Todo = ({ onTodoClick, onDeleteClick, completed, text }) => (
-  <li
-    className="todo"
-  >
-    <p
-      className={completed ? "todo-text todo-done" : "todo-text"}
-      onClick={onTodoClick}
+const Todo = ({ onTodoClick, onDeleteClick, completed, text, id }) => {
+  let todoClass = "todo-text todo-text-" + id;
+
+  if (completed) {
+    todoClass += " todo-done";
+  }
+
+  return (
+    <li
+      className={"todo todo-" + id}
     >
-      {text}
-    </p>
-    <a
-      href="#"
-      className="todo-delete"
-      onClick={(e) => {
-        e.preventDefault();
-        onDeleteClick();
-      }}
-    >
-      ×
-    </a>
-  </li>
-);
+      <p
+        className={todoClass}
+        onClick={onTodoClick}
+      >
+        {text}
+      </p>
+      <a
+        href="#"
+        className={"todo-delete todo-delete-" + id}
+        onClick={(e) => {
+          e.preventDefault();
+          onDeleteClick();
+        }}
+      >
+        ×
+      </a>
+    </li>
+  );
+};
 
 Todo.PropTypes = {
   onTodoClick: PropTypes.func.isRequired,
