@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import importer from 'node-sass-globbing';
 import plumber from 'gulp-plumber';
-import util from 'gulp-util';
+import { log, PluginError } from 'gulp-util';
 import autoprefixer from 'gulp-autoprefixer';
 import cleancss from 'gulp-clean-css';
 import rename from 'gulp-rename';
@@ -11,6 +11,9 @@ import mocha from 'gulp-mocha';
 import istanbul from 'gulp-istanbul';
 import { Instrumenter } from 'isparta';
 import runSequence from 'run-sequence';
+import webpack from 'webpack';
+import webpackDevServer from 'webpack-dev-server';
+import webdriver from 'gulp-webdriver';
 
 const SRC_JS_FILES = 'src/js/**/*.js',
       SRC_SCSS_FILES = 'src/sass/**/*.scss',
@@ -21,10 +24,12 @@ const SRC_JS_FILES = 'src/js/**/*.js',
         includePaths: [
           'node_modules/breakpoint-sass/stylesheets/'
         ]
-      };
-
-
-let log = util.log;
+      },
+      server = new webpackDevServer(
+        webpack(require('./webpack.config')), {
+          contentBase: 'src'
+        }
+      );
 
 gulp.task('default', () => {
   // do nothing
@@ -64,19 +69,44 @@ gulp.task('coverage:report', (done) => {
     .pipe(istanbul.writeReports());
 });
 
-gulp.task('test', () => {
+gulp.task('unit-test', () => {
   return gulp.src(TEST_FILES, {read: false})
     .pipe(mocha({
       reporter: 'spec'
     }));
 });
 
-gulp.task('test:coverage', (done) => {
+gulp.task('unit-test:coverage', (done) => {
   runSequence(
     'coverage:clean',
     'coverage:instrument',
-    'test',
+    'unit-test',
     'coverage:report',
+    done
+  );
+});
+
+gulp.task('webpack-dev-server:open', () => {
+  return server.listen(8080, 'localhost', (err) => {
+    if(err) throw new PluginError('webpack-dev-server', err);
+    log('[webpack-dev-server]', 'http://localhost:8080');
+  });
+});
+
+gulp.task('webpack-dev-server:close', () => {
+  return server.close();
+})
+
+gulp.task('webdriverio-test', () => {
+  return gulp.src('wdio.conf.js')
+    .pipe(webdriver());
+});
+
+gulp.task('integration-test', (done) => {
+  runSequence(
+    'webpack-dev-server:open',
+    'webdriverio-test',
+    'webpack-dev-server:close',
     done
   );
 });
