@@ -2,9 +2,16 @@ var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 
 module.exports = {
-  context: __dirname + "/src",
+  entry: __dirname + "/src/js/index.js",
+  output: {
+    path: __dirname + "/dist",
+    filename: "index.min.js"
+  },
+  devServer: {
+    inline: true,
+    contentBase: './dist'
+  },
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/index.js",
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -15,10 +22,6 @@ module.exports = {
         plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
       }
     }]
-  },
-  output: {
-    path: __dirname + "/src",
-    filename: "index.min.js"
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

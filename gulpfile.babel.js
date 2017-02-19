@@ -24,12 +24,9 @@ const SRC_JS_FILES = 'src/js/**/*.js',
         includePaths: [
           'node_modules/breakpoint-sass/stylesheets/'
         ]
-      },
-      server = new webpackDevServer(
-        webpack(require('./webpack.config')), {
-          contentBase: 'src'
-        }
-      );
+      };
+
+let server;
 
 gulp.task('default', () => {
   // do nothing
@@ -41,10 +38,10 @@ gulp.task('sass', () => {
     .pipe(plumber())
     .pipe(sass(sass_config))
     .pipe(autoprefixer({browsers: ['last 2 versions', 'safari 5', 'ie 9']}))
-    .pipe(gulp.dest('src/css'))
+    .pipe(gulp.dest('dist/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(cleancss())
-    .pipe(gulp.dest('src/css'));
+    .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('watch:sass', () => {
@@ -87,6 +84,11 @@ gulp.task('unit-test:coverage', (done) => {
 });
 
 gulp.task('webpack-dev-server:open', () => {
+  server = new webpackDevServer(
+    webpack(require('./webpack.config')), {
+      contentBase: 'dist'
+    }
+  );
   return server.listen(8080, 'localhost', (err) => {
     if(err) throw new PluginError('webpack-dev-server', err);
     log('[webpack-dev-server]', 'http://localhost:8080');

@@ -51,7 +51,7 @@
   "scripts": {
     "postinstall": "./node_modules/.bin/selenium-standalone install",
     "kill-selenium": "pkill -f selenium-standalone",
-    "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
+    "dev": "./node_modules/.bin/webpack-dev-server --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
