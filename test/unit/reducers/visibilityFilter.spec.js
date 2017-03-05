@@ -8,7 +8,7 @@ describe('Reducer: visibilityFilter', () => {
       const stateBefore = 'SHOW_ALL';
       const action = {
         type: 'SET_VISIBILITY_FILTER',
-        filter: 'SHOW_COMPLETED'
+        filter: 'SHOW_COMPLETED',
       };
       const stateAfter = 'SHOW_COMPLETED';
 
@@ -23,7 +23,7 @@ describe('Reducer: visibilityFilter', () => {
     it('should set visibility filter to provided filter if no state is provided', () => {
       const action = {
         type: 'SET_VISIBILITY_FILTER',
-        filter: 'SHOW_COMPLETED'
+        filter: 'SHOW_COMPLETED',
       };
       const stateAfter = 'SHOW_COMPLETED';
 
@@ -32,7 +32,7 @@ describe('Reducer: visibilityFilter', () => {
       expect(
         visibilityFilter(undefined, action)
       ).to.deep.equal(stateAfter);
-    })
+    });
   });
 
   describe('default action', () => {
@@ -40,7 +40,7 @@ describe('Reducer: visibilityFilter', () => {
       const stateBefore = 'SHOW_COMPLETED';
       const action = {
         type: 'DEFAULT_ACTION',
-        filter: 'SHOW_ACTIVE'
+        filter: 'SHOW_ACTIVE',
       };
       const stateAfter = 'SHOW_COMPLETED';
 
@@ -55,7 +55,7 @@ describe('Reducer: visibilityFilter', () => {
     it('should return state if no action type is provided', () => {
       const stateBefore = 'SHOW_COMPLETED';
       const action = {
-        filter: 'SHOW_ACTIVE'
+        filter: 'SHOW_ACTIVE',
       };
       const stateAfter = 'SHOW_COMPLETED';
 
@@ -70,7 +70,7 @@ describe('Reducer: visibilityFilter', () => {
     it('should return SHOW_ALL if no state is provided', () => {
       const action = {
         type: 'DEFAULT_ACTION',
-        filter: 'SHOW_COMPLETED'
+        filter: 'SHOW_COMPLETED',
       };
       const stateAfter = 'SHOW_ALL';
 

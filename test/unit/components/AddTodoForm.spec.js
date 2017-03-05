@@ -3,17 +3,17 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
-import AddTodoForm from '../../../src/js/components/AddTodoForm';
+import AddTodo from '../../../src/js/components/presentational/AddTodo';
 
-describe('Component: AddTodoForm', () => {
+describe('Component: AddTodo', () => {
   const minProps = {
-    onSubmit: () => {}
-  }
+    onSubmit: () => {},
+  };
 
   it('should render without errors', () => {
     expect(
       shallow(
-        <AddTodoForm {...minProps} />
+        <AddTodo {...minProps} />
       ).length
     ).to.equal(1);
   });
@@ -21,14 +21,14 @@ describe('Component: AddTodoForm', () => {
   it('should mount without errors', () => {
     expect(
       mount(
-        <AddTodoForm {...minProps} />
+        <AddTodo {...minProps} />
       ).length
     ).to.equal(1);
   });
 
   it('should have button that submits form', () => {
     const wrapper = shallow(
-      <AddTodoForm {...minProps} />
+      <AddTodo {...minProps} />
     );
 
     expect(
@@ -39,7 +39,7 @@ describe('Component: AddTodoForm', () => {
   it('should call onSubmit if form is submitted', () => {
     const onSubmit = spy(minProps, 'onSubmit');
     const wrapper = shallow(
-      <AddTodoForm {...minProps} />
+      <AddTodo {...minProps} />
     );
     wrapper.find('form').simulate('submit');
     onSubmit.restore();

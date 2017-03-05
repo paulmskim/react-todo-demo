@@ -3,14 +3,14 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
-import TodoList from '../../../src/js/components/TodoList';
+import TodoList from '../../../src/js/components/presentational/TodoList';
 
 describe('Component: TodoList', () => {
   const minProps = {
     todos: [],
     onTodoClick: () => {},
     onDeleteClick: () => {},
-  }
+  };
 
   it('should render without errors', () => {
     expect(
@@ -33,16 +33,16 @@ describe('Component: TodoList', () => {
       {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       }, {
         id: 1,
         text: 'Goodbye world',
-        completed: false
-      }
+        completed: false,
+      },
     ];
     const wrapper = shallow(
       <TodoList {...minProps} todos={todos} />
-    )
+    );
 
     expect(
       wrapper.children().length

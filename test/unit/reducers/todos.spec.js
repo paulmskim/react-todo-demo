@@ -9,13 +9,15 @@ describe('Reducer: todos', () => {
       const action = {
         type: 'ADD_TODO',
         id: 0,
-        text: 'Hello world'
-      };
-      const stateAfter = [{
-        id: 0,
         text: 'Hello world',
-        completed: false
-      }];
+      };
+      const stateAfter = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -26,23 +28,25 @@ describe('Reducer: todos', () => {
     });
 
     it('should add todo to existing state', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
       const action = {
         type: 'ADD_TODO',
         id: 1,
-        text: 'Goodbye world'
+        text: 'Goodbye world',
       };
       const stateAfter = [
         ...stateBefore,
         {
           id: 1,
           text: 'Goodbye world',
-          completed: false
-        }
+          completed: false,
+        },
       ];
 
       deepFreeze(stateBefore);
@@ -57,13 +61,15 @@ describe('Reducer: todos', () => {
       const action = {
         type: 'ADD_TODO',
         id: 0,
-        text: 'Hello world'
-      };
-      const stateAfter = [{
-        id: 0,
         text: 'Hello world',
-        completed: false
-      }];
+      };
+      const stateAfter = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
 
       deepFreeze(action);
 
@@ -75,20 +81,24 @@ describe('Reducer: todos', () => {
 
   describe('toggle todo action', () => {
     it('should toggle completed field if todo id matches action id', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
       const action = {
         type: 'TOGGLE_TODO',
-        id: 0
-      };
-      const stateAfter = [{
         id: 0,
-        text: 'Hello world',
-        completed: true
-      }];
+      };
+      const stateAfter = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: true,
+        },
+      ];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -99,14 +109,16 @@ describe('Reducer: todos', () => {
     });
 
     it('should not toggle completed field if todo id does not matches action id', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
       const action = {
         type: 'TOGGLE_TODO',
-        id: 1
+        id: 1,
       };
       const stateAfter = [...stateBefore];
 
@@ -119,28 +131,32 @@ describe('Reducer: todos', () => {
     });
 
     it('should only toggle completed field of todo if todo id matches action id', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }, {
-        id: 1,
-        text: 'Goodbye world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        }, {
+          id: 1,
+          text: 'Goodbye world',
+          completed: false,
+        },
+      ];
       const action = {
         type: 'TOGGLE_TODO',
-        id: 0
-      };
-      const stateAfter = [{
         id: 0,
-        text: 'Hello world',
-        completed: true
-      }, {
-        id: 1,
-        text: 'Goodbye world',
-        completed: false
-      }];
+      };
+      const stateAfter = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: true,
+        }, {
+          id: 1,
+          text: 'Goodbye world',
+          completed: false,
+        },
+      ];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -167,14 +183,16 @@ describe('Reducer: todos', () => {
 
   describe('delete todo action', () => {
     it('should delete todo if todo id matches action id', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
       const action = {
         type: 'DELETE_TODO',
-        id: 0
+        id: 0,
       };
       const stateAfter = [];
 
@@ -187,20 +205,24 @@ describe('Reducer: todos', () => {
     });
 
     it('should not delete todo if todo id does not match action id', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
       const action = {
         type: 'DELETE_TODO',
-        id: 1
+        id: 1,
       };
-      const stateAfter = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateAfter = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -211,24 +233,28 @@ describe('Reducer: todos', () => {
     });
 
     it('should only delete todo if todo id matches action id', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }, {
-        id: 1,
-        text: 'Goodbye world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        }, {
+          id: 1,
+          text: 'Goodbye world',
+          completed: false,
+        },
+      ];
       const action = {
         type: 'DELETE_TODO',
-        id: 0
+        id: 0,
       };
-      const stateAfter = [{
-        id: 1,
-        text: 'Goodbye world',
-        completed: false
-      }];
+      const stateAfter = [
+        {
+          id: 1,
+          text: 'Goodbye world',
+          completed: false,
+        },
+      ];
 
       deepFreeze(stateBefore);
       deepFreeze(action);
@@ -241,7 +267,7 @@ describe('Reducer: todos', () => {
     it('should return blank array if no state is provided', () => {
       const action = {
         type: 'DELETE_TODO',
-        id: 0
+        id: 0,
       };
       const stateAfter = [];
 
@@ -255,14 +281,16 @@ describe('Reducer: todos', () => {
 
   describe('default action', () => {
     it('should return state if an unknown action is provided', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
       const action = {
         action: 'DEFAULT_ACTION',
-        id: 0
+        id: 0,
       };
       const stateAfter = [...stateBefore];
 
@@ -275,13 +303,15 @@ describe('Reducer: todos', () => {
     });
 
     it('should return state if no action type is provided', () => {
-      const stateBefore = [{
-        id: 0,
-        text: 'Hello world',
-        completed: false
-      }];
+      const stateBefore = [
+        {
+          id: 0,
+          text: 'Hello world',
+          completed: false,
+        },
+      ];
       const action = {
-        id: 0
+        id: 0,
       };
       const stateAfter = [...stateBefore];
 
@@ -296,7 +326,7 @@ describe('Reducer: todos', () => {
     it('should return blank array if no state is provided', () => {
       const action = {
         type: 'DEFAULT_ACTION',
-        id: 0
+        id: 0,
       };
       const stateAfter = [];
 

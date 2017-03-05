@@ -9,12 +9,12 @@ describe('Reducer: todo', () => {
       const action = {
         type: 'ADD_TODO',
         id: 0,
-        text: 'Hello world'
+        text: 'Hello world',
       };
       const stateAfter = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
 
       deepFreeze(stateBefore);
@@ -31,16 +31,16 @@ describe('Reducer: todo', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
       const action = {
         type: 'TOGGLE_TODO',
-        id: 0
+        id: 0,
       };
       const stateAfter = {
         id: 0,
         text: 'Hello world',
-        completed: true
+        completed: true,
       };
 
       deepFreeze(stateBefore);
@@ -55,16 +55,16 @@ describe('Reducer: todo', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
       const action = {
         type: 'TOGGLE_TODO',
-        id: 1
+        id: 1,
       };
       const stateAfter = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
 
       deepFreeze(stateBefore);
@@ -81,11 +81,11 @@ describe('Reducer: todo', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
       const action = {
         type: 'DELETE_TODO',
-        id: 0
+        id: 0,
       };
       const stateAfter = false;
 
@@ -101,11 +101,11 @@ describe('Reducer: todo', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
       const action = {
         type: 'DELETE_TODO',
-        id: 1
+        id: 1,
       };
       const stateAfter = true;
 
@@ -123,16 +123,16 @@ describe('Reducer: todo', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
       const action = {
         action: 'DEFAULT_ACTION',
-        id: 0
+        id: 0,
       };
       const stateAfter = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
 
       deepFreeze(stateBefore);
@@ -147,15 +147,15 @@ describe('Reducer: todo', () => {
       const stateBefore = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
       const action = {
-        id: 0
+        id: 0,
       };
       const stateAfter = {
         id: 0,
         text: 'Hello world',
-        completed: false
+        completed: false,
       };
 
       deepFreeze(stateBefore);

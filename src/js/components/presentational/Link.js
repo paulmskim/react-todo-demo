@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 
 const Link = ({ active, children, onClick }) => {
-  const footerLinkClass = "footer-link footer-link-" + children.toLowerCase();
+  const footerLinkClass = 'footer-link footer-link-' + children.toLowerCase();
 
   if (active) {
-    return <span className={footerLinkClass + " active"}>{children}</span>;
+    return <span className={footerLinkClass + ' active'}>{children}</span>;
   }
 
   return (
@@ -24,7 +24,7 @@ const Link = ({ active, children, onClick }) => {
 Link.PropTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Link;

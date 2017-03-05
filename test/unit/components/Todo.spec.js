@@ -3,15 +3,15 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
-import Todo from '../../../src/js/components/Todo';
+import Todo from '../../../src/js/components/presentational/Todo';
 
 describe('Component: Todo', () => {
   const minProps = {
     onTodoClick: () => {},
     onDeleteClick: () => {},
     completed: false,
-    text: 'test'
-  }
+    text: 'test',
+  };
 
   it('should render without errors', () => {
     expect(

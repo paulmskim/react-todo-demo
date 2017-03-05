@@ -3,14 +3,14 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
-import Link from '../../../src/js/components/Link';
+import Link from '../../../src/js/components/presentational/Link';
 
 describe('Component: Link', () => {
   const minProps = {
     active: false,
     children: 'All',
-    onClick: () => {}
-  }
+    onClick: () => {},
+  };
 
   it('should render non-active link without errors', () => {
     expect(

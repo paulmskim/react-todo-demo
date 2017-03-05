@@ -14,7 +14,7 @@ describe('Actions', () => {
       const output = {
         type: 'ADD_TODO',
         id: 0,
-        text: input
+        text: input,
       };
 
       deepFreeze(input);
@@ -29,7 +29,7 @@ describe('Actions', () => {
       const output = {
         type: 'ADD_TODO',
         id: 1,
-        text: input
+        text: input,
       };
 
       deepFreeze(input);
@@ -45,7 +45,7 @@ describe('Actions', () => {
       const input = 1;
       const output = {
         type: 'TOGGLE_TODO',
-        id: input
+        id: input,
       };
 
       deepFreeze(input);
@@ -61,7 +61,7 @@ describe('Actions', () => {
       const input = 1;
       const output = {
         type: 'DELETE_TODO',
-        id: input
+        id: input,
       };
 
       deepFreeze(input);
@@ -77,7 +77,7 @@ describe('Actions', () => {
       const input = 'SHOW_COMPLETED';
       const output = {
         type: 'SET_VISIBILITY_FILTER',
-        filter: input
+        filter: input,
       };
 
       deepFreeze(input);

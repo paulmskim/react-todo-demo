@@ -24,10 +24,10 @@ TodoList.PropTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired
+    completed: PropTypes.bool.isRequired,
   }).isRequired).isRequired,
   onTodoClick: PropTypes.func.isRequired,
-  onDeleteClick: PropTypes.func.isRequired
+  onDeleteClick: PropTypes.func.isRequired,
 };
 
 export default TodoList;
