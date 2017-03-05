@@ -1,17 +1,17 @@
-var debug = process.env.NODE_ENV !== "production";
+var debug = process.env.NODE_ENV !== 'production';
 var webpack = require('webpack');
 
 module.exports = {
-  entry: __dirname + "/src/js/index.js",
+  entry: __dirname + '/src/js/index.js',
   output: {
-    path: __dirname + "/dist",
-    filename: "index.min.js"
+    path: __dirname + '/dist/js',
+    filename: 'index.min.js',
   },
   devServer: {
     inline: true,
-    contentBase: './dist'
+    contentBase: './dist',
   },
-  devtool: debug ? "inline-sourcemap" : null,
+  devtool: debug ? 'inline-sourcemap' : null,
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -20,7 +20,7 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-0'],
         plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
-      }
+      },
     }]
   },
   plugins: debug ? [] : [
