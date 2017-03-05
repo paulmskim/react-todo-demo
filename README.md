@@ -4,7 +4,7 @@ A todo list demo made with React and includes unit and integration tests. An
 interactive demo can be found on
 [Codepen](https://codepen.io/paulkim/full/mRVGbO/).
 
-![alt text](./img/react-todo.jpg "React Todo Demo")
+![alt text](./img/react-todo.gif "React Todo Demo")
 
 ## Getting started
 
