@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { addTodo } from '../../actions/actions';
 import AddTodo from '../presentational/AddTodo';
 
-const mapDispatchToProps = (dispatch) => (
+const mapDispatchToProps = dispatch => (
   {
     onSubmit: (e, input) => {
       e.preventDefault();
@@ -18,5 +18,5 @@ const mapDispatchToProps = (dispatch) => (
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(AddTodo);

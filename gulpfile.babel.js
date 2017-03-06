@@ -12,19 +12,19 @@ import istanbul from 'gulp-istanbul';
 import { Instrumenter } from 'isparta';
 import runSequence from 'run-sequence';
 import webpack from 'webpack';
-import webpackDevServer from 'webpack-dev-server';
+import WebpackDevServer from 'webpack-dev-server';
 import webdriver from 'gulp-webdriver';
 
-const SRC_JS_FILES = 'src/js/**/*.js',
-      SRC_SCSS_FILES = 'src/sass/**/*.scss',
-      TEST_FILES = 'test/unit/test.js',
-      sass_config = {
-        style: 'expanded',
-        importer: importer,
-        includePaths: [
-          'node_modules/breakpoint-sass/stylesheets/'
-        ]
-      };
+const SRC_JS_FILES = 'src/js/**/*.js';
+const SRC_SCSS_FILES = 'src/sass/**/*.scss';
+const TEST_FILES = 'test/unit/test.js';
+const SASS_CONFIG = {
+  style: 'expanded',
+  importer,
+  includePaths: [
+    'node_modules/breakpoint-sass/stylesheets/',
+  ],
+};
 
 let server;
 
@@ -33,13 +33,21 @@ gulp.task('default', () => {
 });
 
 gulp.task('sass', () => {
-  log('Generate CSS files ' + (new Date()).toString());
+  log(`Generate CSS files  + ${(new Date()).toString()}`);
   gulp.src(SRC_SCSS_FILES)
     .pipe(plumber())
-    .pipe(sass(sass_config))
-    .pipe(autoprefixer({browsers: ['last 2 versions', 'safari 5', 'ie 9']}))
+    .pipe(sass(SASS_CONFIG))
+    .pipe(autoprefixer({
+      browsers: [
+        'last 2 versions',
+        'safari 5',
+        'ie 9',
+      ],
+    }))
     .pipe(gulp.dest('dist/css'))
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename({
+      suffix: '.min',
+    }))
     .pipe(cleancss())
     .pipe(gulp.dest('dist/css'));
 });
@@ -53,25 +61,27 @@ gulp.task('coverage:clean', () => {
   del(['coverage']);
 });
 
-gulp.task('coverage:instrument', () => {
-  return gulp.src(SRC_JS_FILES)
+gulp.task('coverage:instrument', () => (
+  gulp.src(SRC_JS_FILES)
     .pipe(istanbul({
-      instrumenter: Instrumenter
+      instrumenter: Instrumenter,
     }))
-    .pipe(istanbul.hookRequire());
-});
+    .pipe(istanbul.hookRequire())
+));
 
-gulp.task('coverage:report', (done) => {
-  return gulp.src(SRC_JS_FILES, {read: false})
-    .pipe(istanbul.writeReports());
-});
+gulp.task('coverage:report', () => (
+  gulp.src(SRC_JS_FILES, {
+    read: false,
+  }).pipe(istanbul.writeReports())
+));
 
-gulp.task('unit-test', () => {
-  return gulp.src(TEST_FILES, {read: false})
-    .pipe(mocha({
-      reporter: 'spec'
-    }));
-});
+gulp.task('unit-test', () => (
+  gulp.src(TEST_FILES, {
+    read: false,
+  }).pipe(mocha({
+    reporter: 'spec',
+  }))
+));
 
 gulp.task('unit-test:coverage', (done) => {
   runSequence(
@@ -79,36 +89,36 @@ gulp.task('unit-test:coverage', (done) => {
     'coverage:instrument',
     'unit-test',
     'coverage:report',
-    done
+    done,
   );
 });
 
 gulp.task('webpack-dev-server:open', () => {
-  server = new webpackDevServer(
+  server = new WebpackDevServer(
     webpack(require('./webpack.config')), {
-      contentBase: 'dist'
-    }
+      contentBase: 'dist',
+    },
   );
   return server.listen(8080, 'localhost', (err) => {
-    if(err) throw new PluginError('webpack-dev-server', err);
+    if (err) throw new PluginError('webpack-dev-server', err);
     log('[webpack-dev-server]', 'http://localhost:8080');
   });
 });
 
-gulp.task('webpack-dev-server:close', () => {
-  return server.close();
-})
+gulp.task('webpack-dev-server:close', () => (
+  server.close()
+));
 
-gulp.task('webdriverio-test', () => {
-  return gulp.src('wdio.conf.js')
-    .pipe(webdriver());
-});
+gulp.task('webdriverio-test', () => (
+  gulp.src('wdio.conf.js')
+    .pipe(webdriver())
+));
 
 gulp.task('integration-test', (done) => {
   runSequence(
     'webpack-dev-server:open',
     'webdriverio-test',
     'webpack-dev-server:close',
-    done
+    done,
   );
 });

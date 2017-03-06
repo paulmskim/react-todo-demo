@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react';
 
 const Link = ({ active, children, onClick }) => {
-  const footerLinkClass = 'footer-link footer-link-' + children.toLowerCase();
+  const footerLinkClass = `footer-link footer-link-${children.toLowerCase()}`;
 
   if (active) {
-    return <span className={footerLinkClass + ' active'}>{children}</span>;
+    return <span className={`${footerLinkClass} active`}>{children}</span>;
   }
 
   return (
     <a
       className={footerLinkClass}
       href="#"
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault();
         onClick();
       }}
@@ -21,7 +21,7 @@ const Link = ({ active, children, onClick }) => {
   );
 };
 
-Link.PropTypes = {
+Link.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,

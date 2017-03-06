@@ -8,19 +8,19 @@ const TodoList = ({ todos, onTodoClick, onDeleteClick }) => {
 
   return (
     <ul className="todo-list">
-      {todos.map(todo =>
+      {todos.map(todo => (
         <Todo
           key={todo.id}
           {...todo}
           onTodoClick={() => onTodoClick(todo.id)}
           onDeleteClick={() => onDeleteClick(todo.id)}
         />
-      )}
+      ))}
     </ul>
   );
 };
 
-TodoList.PropTypes = {
+TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,

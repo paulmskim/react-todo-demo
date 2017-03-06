@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const Todo = ({ onTodoClick, onDeleteClick, completed, text, id }) => {
-  let todoClass = 'todo-text todo-text-' + id;
+  let todoClass = `todo-text todo-text- + ${id}`;
 
   if (completed) {
     todoClass += ' todo-done';
@@ -9,7 +9,7 @@ const Todo = ({ onTodoClick, onDeleteClick, completed, text, id }) => {
 
   return (
     <li
-      className={'todo todo-' + id}
+      className={`todo todo- + ${id}`}
     >
       <p
         className={todoClass}
@@ -19,7 +19,7 @@ const Todo = ({ onTodoClick, onDeleteClick, completed, text, id }) => {
       </p>
       <a
         href="#"
-        className={'todo-delete todo-delete-' + id}
+        className={`todo-delete todo-delete- + ${id}`}
         onClick={(e) => {
           e.preventDefault();
           onDeleteClick();
@@ -31,11 +31,12 @@ const Todo = ({ onTodoClick, onDeleteClick, completed, text, id }) => {
   );
 };
 
-Todo.PropTypes = {
+Todo.propTypes = {
   onTodoClick: PropTypes.func.isRequired,
   onDeleteClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Todo;

@@ -12,7 +12,7 @@ const AddTodo = ({ onSubmit }) => {
         <input
           className="add-todo-input"
           placeholder="Add todo here..."
-          ref={node => { input = node; }}
+          ref={(node) => { input = node; }}
         />
         <button
           className="add-todo-button"
@@ -25,7 +25,7 @@ const AddTodo = ({ onSubmit }) => {
   );
 };
 
-AddTodo.PropTypes = {
+AddTodo.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
