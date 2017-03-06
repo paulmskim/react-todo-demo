@@ -57,11 +57,13 @@
     "postinstall": "selenium-standalone install",
     "kill-selenium": "pkill -f selenium-standalone",
     "dev": "webpack-dev-server --hot",
+    "prebuild": "npm run lint",
     "build": "webpack",
+    "preprod": "npm run lint",
     "prod": "webpack -p",
     "unit-test": "gulp unit-test:coverage",
     "integration-test": "gulp integration-test",
-    "lint": "eslint ./src/js",
+    "lint": "eslint ./src/js; exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
